@@ -100,5 +100,16 @@ class SiteController extends Controller
          return $this->render("saluda");
     }
     
-   
+    public function actionFormulario()
+    {
+        return $this->render("formulario");
+    }
+    
+    public function actionPeticion()
+    {
+        if (isset($_REQUEST["nombre"]))
+           {
+                          
+           }
+    }
 }
