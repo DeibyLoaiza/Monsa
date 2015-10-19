@@ -50,12 +50,12 @@
         	<div class="main">
             	<nav class="wrapper">
                     <ul class="menu">
-                        <li><a class="active" href="index.html">Home</a></li>
-                        <li><a href="about.html">About us</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="portfolio.html">Portfolio</a></li>
-                        <li><a href="pricelist.html">Pricelist</a></li>
-                        <li><a href="contacts.html">Contacts</a></li>
+                        <li><a class="active" href="index.html">Inicio</a></li>
+                        <li><a href="about.html">Acerca de nosotros</a></li>
+                        <li><a href="services.html">Servicios</a></li>
+                        <li><a href="portfolio.html">Portafolio</a></li>
+                        <li><a href="pricelist.html">Lista de precios</a></li>
+                        <li><a href="contacts.html">Contactanos</a></li>
                     </ul>
                 </nav>
             </div>
@@ -64,8 +64,8 @@
             <div class="row-bot-bg">
                 <div class="main">
                     <div class="wrapper p6">
-                        <h1><a href="index.html">Exterior Design</a></h1>
-                        <h2>Decorate Your Life With Us!</h2>
+                        <h1><a href="index.html">DiseÃ±os de casas</a></h1>
+                        <h2>Decora tu vida con nosotros</h2>
                     </div>
                     <div class="slider-wrapper">
                         <div class="slider">
@@ -85,7 +85,7 @@
                     <div class="wrapper">
                     	<figure class="img-indent2"><img src="images/page1-img1.png" alt=""></figure>
                         <div class="extra-wrap">
-                        	<strong class="text-1">Exterior Design is one of <a class="link-1" href="http://blog.templatemonster.com/free-website-templates/" target="_blank">free website templates</a> created by TemplateMonster.com team. This template is optimized for 1280X1024 resolution and XHTML &amp; CSS valid. This <a class="link-1" target="_blank" href="http://blog.templatemonster.com/2012/01/16/free-website-template-exterior-design-jquery-slider/ ">Exterior Design Template</a> goes with two packages – with PSD source files and without them.</strong>
+                        	<strong class="text-1">Exterior Design is one of <a class="link-1" href="http://blog.templatemonster.com/free-website-templates/" target="_blank">free website templates</a> created by TemplateMonster.com team. This template is optimized for 1280X1024 resolution and XHTML &amp; CSS valid. This <a class="link-1" target="_blank" href="http://blog.templatemonster.com/2012/01/16/free-website-template-exterior-design-jquery-slider/ ">Exterior Design Template</a> goes with two packages ï¿½ with PSD source files and without them.</strong>
                         </div>
                     </div>
                 </div>
@@ -156,7 +156,7 @@
                     <article class="grid_4">
                     	<h3 class="prev-indent-bot">Shortly About Us</h3>
                         <h6 class="p1">Sed ut perspiciatis unde omnis</h6>
-                        <p class="img-indent-bot">PSD source files are available for free for the registered members of TemplatesMonster. The basic package is available for anyone without registration. This website template has several pages: <a class="link" href="index.html">Home Page</a>, <a class="link" href="#">Company</a>, <a class="link" href="services.html">Services</a>, <a class="link" href="#">Clients</a>, <a class="link" href="contacts.html">Contacts</a> (note that contact us form – doesn’t work).</p>
+                        <p class="img-indent-bot">PSD source files are available for free for the registered members of TemplatesMonster. The basic package is available for anyone without registration. This website template has several pages: <a class="link" href="index.html">Home Page</a>, <a class="link" href="#">Company</a>, <a class="link" href="services.html">Services</a>, <a class="link" href="#">Clients</a>, <a class="link" href="contacts.html">Contacts</a> (note that contact us form ï¿½ doesnï¿½t work).</p>
                         <a class="button" href="#"><span>read more</span></a>
                     </article>
                     <article class="grid_4">

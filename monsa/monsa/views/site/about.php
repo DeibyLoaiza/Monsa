@@ -49,12 +49,12 @@
         	<div class="main">
             	<nav class="wrapper">
                     <ul class="menu">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a class="active" href="about.html">About us</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="portfolio.html">Portfolio</a></li>
-                        <li><a href="pricelist.html">Pricelist</a></li>
-                        <li><a href="contacts.html">Contacts</a></li>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a class="active" href="about.html">Acerca de nosotros</a></li>
+                        <li><a href="services.html">Servicios</a></li>
+                        <li><a href="portfolio.html">Portafolio</a></li>
+                        <li><a href="pricelist.html">Nuestros precios</a></li>
+                        <li><a href="contacts.html">Contactanos</a></li>
                     </ul>
                 </nav>
             </div>
@@ -63,8 +63,8 @@
             <div class="row-bot-bg">
                 <div class="main">
                     <div class="wrapper">
-                        <h1><a href="index.html">Exterior Design</a></h1>
-                        <h2>Decora tu vida con nosotros</h2>
+                        <h1><a href="index.html">Dise&ntilde;o de casas</a></h1>
+                        <h2>Haz realidad la casa de tus sue&ntilde;os</h2>
                     </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@
 	        <a class="prev"></a>
             <a class="next"></a>
             <div class="carousel-container">
-                <h3>Diseños Exclusivos</h3>
+                <h3>Dise&ntilde;os Exclusivos</h3>
                 <div class="jCarouselLite">
                     <ul class="carousel-list">
                         <li>
