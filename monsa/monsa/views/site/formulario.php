@@ -11,24 +11,26 @@ use yii\helpers\Html;
         );
 ?>
 
-<div class="form-group">
-    <?=    Html::label("Ingresa tu nombre","nombre") ?>
+    <div class="col-lg-2">
+    <?=    Html::label("Tu nombre","nombre") ?>
     <?=    Html::textInput("nombre", null, ["class"=>"form-control"]) ?>
-    <?=    Html::label("Ingresa tu apellido","apellido") ?>
+    <?=    Html::label("Tu apellido","apellido") ?>
     <?=    Html::textInput("apellido", null, ["class"=>"form-control"]) ?>
-    <?=    Html::label("Ingresa tu correo electrónico","correo") ?>
+    <?=    Html::label("Tu correo electrónico","correo") ?>
     <?=    Html::textInput("correo", null, ["class"=>"form-control"]) ?>
-    <?=    Html::label("Selecciona modo de contacto","contacto") ?>   
+    <?=    Html::label("Contacto personalizado","contacto") ?>   
     <select name="contacto">
         <option value="">Seleccionar</option>
         <option>Telefono fijo</option>
         <option>Telefono celular</option>
-        <option>Facebook</option>
         <option>Acordar una cita</option>
-    </select>
+    </select>    
+    <?= Html::submitButton("Registrarme", ["class"=> "btn btn-primary"]) ?>
+        
+       
+    </div>
     
-</div>
-
+    
 
 <?= Html::endForm() ?>
 

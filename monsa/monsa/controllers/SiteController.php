@@ -8,6 +8,9 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Registro;
+use yii\widgets\ActiveForm;
+use yii\web\Response;
 
 class SiteController extends Controller
 {        
@@ -93,7 +96,49 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
-    }
+    }   
+    
+    public function actionRegistrocotizante()
+    {
+        $model = new Registro;
+        $msg = null;
+        if ($model->load(Yii::$app->request->post()) && Yii::$app->request->isAjax)
+        {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return ActiveForm::validate($model);            
+          /* Corresponde al metodo validar sin Ajax 
+           * if ($model->validate())
+            {
+                //consulta a base de datos
+            }
+            else
+            {
+                $model-> getErrors();
+            } 
+           */
+        }
+        if ($model->load(Yii::$app->request->post()))
+        {
+              if ($model->validate())
+            {
+                //consulta a base de datos
+                $msg = "Registrado satisfactoriamente";
+                //Limpia los campos
+                $model -> nombre = null;
+                $model -> apellido = null;
+                $model -> email = null;                
+            }
+            else
+            {
+                $model-> getErrors();
+            }            
+        }
+        return $this->render('registrocotizante', ['model' => $model, 'msg'=> $msg ]);
+        /* Corresponde al metodo validar sin Ajax 
+        return $this->render('registrocotizante', ["model" => $model]);
+        */        
+    }   
+    
     
     public function actionHome()
     {

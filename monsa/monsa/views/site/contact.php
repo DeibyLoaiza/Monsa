@@ -7,7 +7,7 @@ use yii\captcha\Captcha;
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model app\models\ContactForm */
 
-$this->title = 'Contact';
+$this->title = 'Contacto';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-contact">
@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php else: ?>
 
     <p>
-        If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
+        Si desea realizar una cotizaci&oacute;n personalizada, por favor registre sus datos para contactarlo
     </p>
 
     <div class="row">
