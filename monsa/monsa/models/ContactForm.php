@@ -23,21 +23,51 @@ class ContactForm extends Model
     {
         return [
             // name, email, subject and body are required
-            [['name', 'email', 'subject', 'body'], 'required'],
+            ['name','required', 'message' => 'Campo requerido'],
+            ['name','match', 'pattern' => "/^.{4,30}$/" , 'message' => 'Mínimo 4 y máximo 30 caracteres'],
+            ['name','match', 'pattern' => "/^[a-záéíóúñ\s]+$/i" , 'message' => 'Solo se aceptan letras'],
+            ['subject','required', 'message' => 'Campo requerido'],
+            ['subject','match', 'pattern' => "/^.{4,30}$/" , 'message' => 'Mínimo 4 y máximo 30 caracteres'],
+            ['body','required', 'message' => 'Campo requerido'],
+            ['email','required', 'message' => 'Campo requerido'],
+                    
             // email has to be a valid email address
-            ['email', 'email'],
+            ['email', 'email', 'message' => 'Formato no válido'],
             // verifyCode needs to be entered correctly
-            ['verifyCode', 'captcha'],
+            ['verifyCode', 'captcha', 'message' => 'El código de verificación es incorrecto'],
         ];
     }
+    
+    public function rules1()
+ {
+  return [
+   ['id_alumno', 'integer', 'message' => 'Id incorrecto'],
+   ['nombre', 'required', 'message' => 'Campo requerido'],
+   ['nombre', 'match', 'pattern' => '/^[a-záéíóúñ\s]+$/i', 'message' => 'Sólo se aceptan letras'],
+   ['nombre', 'match', 'pattern' => '/^.{3,50}$/', 'message' => 'Mínimo 3 máximo 50 caracteres'],
+   ['apellidos', 'required', 'message' => 'Campo requerido'],
+   ['apellidos', 'match', 'pattern' => '/^[a-záéíóúñ\s]+$/i', 'message' => 'Sólo se aceptan letras'],
+   ['apellidos', 'match', 'pattern' => '/^.{3,80}$/', 'message' => 'Mínimo 3 máximo 80 caracteres'],
+   ['clase', 'required', 'message' => 'Campo requerido'],
+   ['clase', 'integer', 'message' => 'Sólo números enteros'],
+   ['nota_final', 'required', 'message' => 'Campo requerido'],
+   ['nota_final', 'number', 'message' => 'Sólo números'],
+  ];
+ }
+
 
     /**
      * @return array customized attribute labels
      */
     public function attributeLabels()
     {
-        return [
-            'verifyCode' => 'Verification Code',
+        return 
+        [
+            'name'=> 'Nombre:',
+            'subject'=> 'Asunto',
+            'email'=> 'Email',
+            'verifyCode' => 'Código de verificación',
+            'body'=> 'Mensaje',
         ];
     }
 
@@ -48,8 +78,13 @@ class ContactForm extends Model
      */
     public function contact($email)
     {
+        $content = "<p>Email: " . $this->email . "</p>";
+        $content .= "<p>Name: " . $this->name . "</p>";
+        $content .= "<p>Subject: " . $this->subject . "</p>";
+        $content .= "<p>Body: " . $this->body . "</p>";
+
         if ($this->validate()) {
-            Yii::$app->mailer->compose()
+            Yii::$app->mailer->compose("@app/mail/layouts/html", ["content" => $content])
                 ->setTo($email)
                 ->setFrom([$this->email => $this->name])
                 ->setSubject($this->subject)

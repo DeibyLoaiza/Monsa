@@ -2,6 +2,7 @@
 namespace app\models;
 use Yii;
 use yii\base\model;
+use yii\db\Query;
 
 class Registro extends model
 {
@@ -15,10 +16,10 @@ class Registro extends model
         [
         ['nombre','required', 'message' => 'Campo requerido'], 
         ['nombre','match', 'pattern' => "/^.{4,30}$/" , 'message' => 'Mínimo 4 y máximo 30 caracteres'],
-        ['nombre','match', 'pattern' => "/^[a-z]+$/i" , 'message' => 'Solo se aceptan letras'],
+        ['nombre','match', 'pattern' => "/^[a-záéíóúñ\s]+$/i" , 'message' => 'Solo se aceptan letras'],
         ['apellido','required', 'message' => 'Campo requerido'], 
         ['apellido','match', 'pattern' => "/^.{4,30}$/" , 'message' => 'Mínimo 4 y máximo 30 caracteres'],
-        ['apellido','match', 'pattern' => "/^[a-z]+$/i" , 'message' => 'Solo se aceptan letras'],
+        ['apellido','match', 'pattern' => "/^[a-záéíóúñ\s]+$/i" , 'message' => 'Solo se aceptan letras'],
         ['email','required', 'message' => 'Campo requerido'], 
         ['email','match', 'pattern' => "/^.{11,50}$/" , 'message' => 'Mínimo 11 y máximo 50 caracteres'],
         ['email','email', 'message' => 'Formato no válido'],
@@ -36,9 +37,16 @@ class Registro extends model
     ];
     }
     
-    public function email_exite($attribute, $params)
+    /*
+     * Metodo que verifica si el correo ya existe
+     */
+    public function email_exite($attribute)
     {   //Lista de correos de la base de datos
-        $email = ["deiby_r10@hotmail.com", "dfloaiza10@gmail.com","deiby@hotmail.com", "loaiza10@gmail.com"];
+        //$email = ["deiby_r10@hotmail.com", "dfloaiza10@gmail.com","deiby@hotmail.com", "loaiza10@gmail.com"];
+        $table = new Cotizantes;
+        $sql = 'SELECT Correo_electronico FROM cotizantes';
+        $email = $table->findBySql($sql);
+         
         foreach ($email as $val)
         {
             if ($this -> email == $val)

@@ -6,11 +6,12 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
+use yii\widgets\ActiveForm;
+use yii\web\Response;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Registro;
-use yii\widgets\ActiveForm;
-use yii\web\Response;
+use app\models\Cotizantes;
 
 class SiteController extends Controller
 {        
@@ -96,70 +97,84 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
-    }   
+    }
     
+    /*
+     * Metodo que permite buscar en la tabla de cotizantes
+     */
+    public function actionLecturacotizante()
+    {
+        $table = new Cotizantes;
+        $model = $table->find()->all();
+        return $this->render('lecturacotizante', ['model' => $model]);                
+    }
+    /*
+     * Controlador que permite registrar un nuevo cotizane
+     */
     public function actionRegistrocotizante()
     {
         $model = new Registro;
         $msg = null;
-        if ($model->load(Yii::$app->request->post()) && Yii::$app->request->isAjax)
-        {
-            Yii::$app->response->format = Response::FORMAT_JSON;
-            return ActiveForm::validate($model);            
-          /* Corresponde al metodo validar sin Ajax 
-           * if ($model->validate())
-            {
-                //consulta a base de datos
-            }
-            else
-            {
-                $model-> getErrors();
-            } 
-           */
-        }
         if ($model->load(Yii::$app->request->post()))
         {
-              if ($model->validate())
-            {
-                //consulta a base de datos
-                $msg = "Registrado satisfactoriamente";
-                //Limpia los campos
-                $model -> nombre = null;
-                $model -> apellido = null;
-                $model -> email = null;                
+            if ($model->validate())
+            {   //consulta a base de datos
+                $table = new Cotizantes;
+                //$table-Nombre Columna
+                $table -> Nombres = $model -> nombre;
+                $table -> Apellidos = $model -> apellido;
+                $table -> Correo_electronico = $model -> email;
+                
+                if ($table -> insert())
+                {   $msg = "El registro se realizó satisfactoriamente";
+                    //Limpia los campos
+                    $model -> nombre = null;
+                    $model -> apellido = null;
+                    $model -> email = null;   
+                }
+                else 
+                {
+                    $msg = "El registro no se realizó satisfactoriamente";
+                }                            
             }
             else
             {
                 $model-> getErrors();
             }            
         }
-        return $this->render('registrocotizante', ['model' => $model, 'msg'=> $msg ]);
-        /* Corresponde al metodo validar sin Ajax 
-        return $this->render('registrocotizante', ["model" => $model]);
-        */        
+        return $this->render('registrocotizante', ['model' => $model, 'msg'=> $msg ]);                
     }   
     
     
     public function actionHome()
     {
         return $this->render("home");
-    }
-
-    public function actionSaludar()
-    {
-         return $this->render("saluda");
-    }
+    }    
     
     public function actionFormulario()
     {
         return $this->render("formulario");
     }
-    
-    public function actionPeticion()
+    /*
+     * Controlador de la vista casamangle
+     */
+    public function actionCasamangle()
     {
-        if (isset($_REQUEST["nombre"]))
-           {
-                          
-           }
+        return $this->render("casamangle");
     }
+    /*
+     * Controlador de la vista casairis
+     */
+    public function actionCasairis()
+    {
+        return $this->render("casairis");
+    }
+    /*
+     * Controlador de la vista casaorquidea
+     */
+    public function actionCasaorquidea()
+    {
+        return $this->render("casaorquidea");
+    }
+    
 }

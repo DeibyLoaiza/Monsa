@@ -30,11 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php endif; ?>
     </p>
 
-    <?php else: ?>
-
-    <p>
-        Si desea realizar una cotizaci&oacute;n personalizada, por favor registre sus datos para contactarlo
-    </p>
+    <?php else: ?>    
 
     <div class="row">
         <div class="col-lg-5">
@@ -47,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
                 ]) ?>
                 <div class="form-group">
-                    <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+                    <?= Html::submitButton('Enviar', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
                 </div>
             <?php ActiveForm::end(); ?>
         </div>

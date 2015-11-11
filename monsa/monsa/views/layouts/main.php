@@ -36,14 +36,15 @@ AppAsset::register($this);
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [                    
                     ['label' => 'Inicio', 'url' => ['/site/index']],
-                    ['label' => 'Acerca de nosotros', 'url' => ['/site/about']],
+                //  ['label' => 'Acerca de nosotros', 'url' => ['/site/about']],
                     ['label' => 'Contacto', 'url' => ['/site/contact']],
                     ['label' => 'Regístrese', 'url' => ['/site/registrocotizante']],
-                    Yii::$app->user->isGuest ?
+                    ['label' => 'Cotizantes', 'url' => ['/site/lecturacotizante']],                    
+                 /*   Yii::$app->user->isGuest ?
                         ['label' => 'Login', 'url' => ['/site/login']] :
                         ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
                             'url' => ['/site/logout'],
-                            'linkOptions' => ['data-method' => 'post']],
+                            'linkOptions' => ['data-method' => 'post']], */
                 ],
             ]);
             NavBar::end();
